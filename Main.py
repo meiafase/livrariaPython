@@ -11,13 +11,13 @@ caminhoBackups = os.path.join(caminho_atual, 'backups')
 caminhoData = os.path.join(caminho_atual, 'data')
 caminhoExports = os.path.join(caminho_atual, 'exports')
 
+os.makedirs(caminhoData, exist_ok=True)
 os.makedirs(caminhoBackups, exist_ok=True)
 os.makedirs(caminhoExports, exist_ok=True)
 
 conexao = sqlite3.connect('./data/livraria.db')
 cursor = conexao.cursor()
 
-"""
 cursor.execute('''
     CREATE TABLE IF NOT EXISTS livros (
         id INTEGER PRIMARY KEY AUTOINCREMENT,
@@ -27,8 +27,6 @@ cursor.execute('''
         preco DOUBLE NOT NULL
     )
 ''')
-"""
-
 
 livrosImportados = []
 
